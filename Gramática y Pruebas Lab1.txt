@@ -1,0 +1,63 @@
+E	->    E+T   |    E-T   | left_T 
+left_T	-> left_T*S | left_T/S | left_S
+T	->    T*S   |    T/S   |    S
+left_S  ->   -F     |    S
+S	->  (-F)    |    F
+F	->  (E)     |    num 
+
+1-2-3
+Resuelto poniendo recursividad de E por la izquierda
+
+2--3
+E -> E-T   -> left_T-T -> left_S-T -> S-T -> F-T -> num-T -> num-S -> ERROR
+E -> left_T-> left_S   -> S        -> F   -> ERROR
+
+2*-2
+E -> left_T -> left_T*S -> left_S*S -> S*S -> F*S -> num*S -> ERROR
+E -> left_T -> left_S   -> S        -> F   -> ERROR
+
+-2+3
+E -> E+T   -> left_T+T -> left_S+T -> -F+T -> -num+T -> -num+S -> -num+F -> -num+num
+E -> left_T-> left_S   -> -F       -> ERROR
+
+-2/6
+E -> left_T -> left_T/S -> left_S/S -> -F/S -> -num/S -> -num/F -> -num/num
+E -> left_T -> left_S   -> -F       -> ERROR
+ 
+2-(-3)
+E -> E-T -> left_T-T -> left_S-T -> S-T -> F-T -> num-T -> num-S -> num-(-F) -> num-(-num)
+
+(-3)*(-3)
+E -> left_T -> left_T*S -> left_S*S -> S*S -> (-F)*S -> (-num)*S -> (-num)*(-F) -> (-num)*(-num)
+
+QUITAR RECURSIVIDAD POR LA IZQUIERDA
+E	->  left_TE' 
+E'      ->    +TE'  |    -TE'  |   e
+left_T	-> left_Sleft_T'
+left_T' -> *Sleft_T'| /Sleft_T'|   e
+T	->    ST'
+T'	->   *ST'   |    /ST'  |   e
+left_S  ->   -F     |    S
+S	->  (-F)    |    F
+F	->  (E)     |    num 
+QUITAR REGLA UNITARIA DE S
+E	->  left_TE' 
+E'      ->    +TE'  |    -TE'  |   e
+left_T	-> left_Sleft_T'
+left_T' -> *Sleft_T'| /Sleft_T'|   e
+T	->    ST'
+T'	->   *ST'   |    /ST'  |   e
+left_S  ->   -F     |    S
+S	->  (-F)    |   (E)    |    num
+F	->  (E)     |    num 
+FACTORIZAR S
+E	->  left_TE' 
+E'      ->    +TE'  |    -TE'  |   e
+left_T	-> left_Sleft_T'
+left_T' -> *Sleft_T'| /Sleft_T'|   e
+T	->    ST'
+T'	->   *ST'   |    /ST'  |   e
+left_S  ->   -F     |    S
+S	->  (S'     |    num
+S'      ->  -F)     |    E)
+F	->  (E)     |    num 

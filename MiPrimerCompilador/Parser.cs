@@ -97,7 +97,7 @@ namespace MiPrimerCompilador
         {
             int returnValue = leftOperand;
             int Svalue;
-            int result=int.MaxValue;
+            int result=0;
             switch (_token.Tag)
             {
                 case TokenType.Mul:
@@ -115,7 +115,7 @@ namespace MiPrimerCompilador
                     if (Svalue != 0) result = leftOperand / Svalue;
                     else
                     {
-                        Console.WriteLine("You can't divide by zero!");
+                        throw new Exception("No se puede dividir entre cero, resultado indefinido");
                     }
                     //Envío del valor calculado como parámetro
                     returnValue = left_Tp(result);
