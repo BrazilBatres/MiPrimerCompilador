@@ -1,2 +1,0 @@
-# MiPrimerCompilador
- Primer Lab Compis
