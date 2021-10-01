@@ -14,7 +14,7 @@ namespace MiPrimerCompilador
                 string regexp = Console.ReadLine();
                 if (regexp != "E")
                 {
-                    int result = parser.Parse(regexp);
+                    double result = parser.Parse(regexp);
                     Console.WriteLine();
                     Console.WriteLine("Expresión OK");
                     Console.WriteLine("Resultado = " + result);

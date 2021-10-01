@@ -8,9 +8,9 @@ namespace MiPrimerCompilador
     {
         Scanner _scanner;
         Token _token;
-        public int Parse(string arithmeticExp)
+        public double Parse(string arithmeticExp)
         {
-            int returnValue = -1;
+            double returnValue = -1;
             _scanner = new Scanner(arithmeticExp + (char)TokenType.EOF);
             _token = _scanner.GetToken();
             switch (_token.Tag)
@@ -26,10 +26,10 @@ namespace MiPrimerCompilador
             Match(TokenType.EOF);
             return returnValue;
         }
-        public int E()
+        public double E()
         {
-            int returnValue = -1;
-            int Tvalue;
+            double returnValue = -1;
+            double Tvalue;
             switch (_token.Tag)
             {
                 case TokenType.Minus:
@@ -40,15 +40,14 @@ namespace MiPrimerCompilador
                     break;
                 default:
                     throw new Exception("Syntax Error");
-                    break;
             }
             return returnValue;
         }
-        public int Ep(int leftOperand)
+        public double Ep(double leftOperand)
         {
-            int returnValue = leftOperand;
-            int Tvalue;
-            int result;
+            double returnValue = leftOperand;
+            double Tvalue;
+            double result;
             switch (_token.Tag)
             {
                 case TokenType.Add:
@@ -75,10 +74,10 @@ namespace MiPrimerCompilador
             }
             return returnValue;
         }
-        public int left_T()
+        public double left_T()
         {
-            int returnValue = -1;
-            int Svalue;
+            double returnValue = -1;
+            double Svalue;
             switch (_token.Tag)
             {
                 case TokenType.Minus:
@@ -89,15 +88,14 @@ namespace MiPrimerCompilador
                     break;
                 default:
                     throw new Exception("Syntax Error");
-                    break;
             }
             return returnValue;
         }
-        public int left_Tp(int leftOperand)
+        public double left_Tp(double leftOperand)
         {
-            int returnValue = leftOperand;
-            int Svalue;
-            int result=0;
+            double returnValue = leftOperand;
+            double Svalue;
+            double result=0;
             switch (_token.Tag)
             {
                 case TokenType.Mul:
@@ -130,10 +128,10 @@ namespace MiPrimerCompilador
             }
             return returnValue;
         }
-        public int T()
+        public double T()
         {
-            int returnValue = -1;
-            int Svalue;
+            double returnValue = -1;
+            double Svalue;
             switch (_token.Tag)
             {
                 case TokenType.LParen:
@@ -146,11 +144,11 @@ namespace MiPrimerCompilador
             }
             return returnValue;
         }
-        public int Tp(int leftOperand)
+        public double Tp(double leftOperand)
         {
-            int returnValue = leftOperand;
-            int Svalue;
-            int Result;
+            double returnValue = leftOperand;
+            double Svalue;
+            double Result;
             switch (_token.Tag)
             {
                 case TokenType.Mul:
@@ -179,9 +177,9 @@ namespace MiPrimerCompilador
             }
             return returnValue;
         }
-        public int left_S()
+        public double left_S()
         {
-            int returnValue = -1;
+            double returnValue = -1;
             switch (_token.Tag)
             {
                 case TokenType.Minus:
@@ -197,9 +195,9 @@ namespace MiPrimerCompilador
             }
             return returnValue;
         }
-        public int S()
+        public double S()
         {
-            int returnValue = -1;
+            double returnValue = -1;
             switch (_token.Tag)
             {
                 case TokenType.LParen:
@@ -207,7 +205,7 @@ namespace MiPrimerCompilador
                     returnValue = Sp();
                     break;
                 case TokenType.Number:
-                    returnValue = int.Parse(_token.Value);
+                    returnValue = double.Parse(_token.Value);
                     Match(TokenType.Number);
                     break;
                 default:
@@ -215,10 +213,10 @@ namespace MiPrimerCompilador
             }
             return returnValue;
         }
-        public int Sp()
+        public double Sp()
         {
-            int returnValue = -1;
-            int Fvalue;
+            double returnValue = -1;
+            double Fvalue;
             switch (_token.Tag)
             {
                 case TokenType.Minus:
@@ -238,9 +236,9 @@ namespace MiPrimerCompilador
             return returnValue;
 
         }
-        public int F()
+        public double F()
         {
-            int returnValue = -1;
+            double returnValue = -1;
             switch (_token.Tag)
             {
                 case TokenType.LParen:
@@ -249,7 +247,7 @@ namespace MiPrimerCompilador
                     Match(TokenType.RParen);
                     break;
                 case TokenType.Number:
-                    returnValue = int.Parse(_token.Value);
+                    returnValue = double.Parse(_token.Value);
                     Match(TokenType.Number);
                     break;
                 default:
@@ -265,7 +263,7 @@ namespace MiPrimerCompilador
             }
             else
             {
-                throw new Exception("Error de sintaxis");
+                throw new Exception("Error de sdoubleaxis");
             }
         }
 
