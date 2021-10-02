@@ -27,7 +27,7 @@ E -> left_T -> left_S   -> -S       -> ERROR
 E -> E-T -> left_T-T -> left_S-T -> S-T -> num-T -> num-S -> num-(E) -> num-(left_T) -> num-(left_S) -> num-(-S) -> num-(-num) 
 
 (-3)*(-3)
-E -> left_T -> left_T*S -> left_S*S -> S*S -> (E)*S -> (left_T)*S-> (left_S)*S->(-S)*S->(-num)*S -> (-num)*(-F) -> (-num)*(-num)
+E -> left_T -> left_T*S -> left_S*S -> S*S -> (E)*S -> (left_T)*S-> (left_S)*S->(-S)*S->(-num)*S -> (-num)*(E) -> (-num)*(left_T) ->(-num)*(left_S) ->(-num)*(-S) ->(-num)*(-num)
 
 QUITAR RECURSIVIDAD POR LA IZQUIERDA
 E	->  left_TE' 
