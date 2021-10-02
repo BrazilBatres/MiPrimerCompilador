@@ -20,13 +20,13 @@ namespace MiPrimerCompilador
                         Console.WriteLine();
                         Console.WriteLine("Expresión OK");
                         Console.WriteLine("Resultado = " + result);
-                        
+
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                     }
-                    Console.WriteLine("---------------------------------------------------------------------");
+                Console.WriteLine("---------------------------------------------------------------------");
                     Console.WriteLine("Ingrese otra expresión (si desea terminar, presione E en su teclado): ");
                 }
                 else

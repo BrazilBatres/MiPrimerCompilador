@@ -263,7 +263,7 @@ namespace MiPrimerCompilador
             }
             else
             {
-                throw new Exception("Error de sdoubleaxis");
+                throw new Exception("Syntax Error");
             }
         }
 
