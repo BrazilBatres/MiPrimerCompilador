@@ -184,7 +184,7 @@ namespace MiPrimerCompilador
             {
                 case TokenType.Minus:
                     Match(TokenType.Minus);
-                    returnValue = F() * -1;
+                    returnValue = S() * -1;
                     break;
                 case TokenType.LParen:
                 case TokenType.Number:
@@ -196,47 +196,6 @@ namespace MiPrimerCompilador
             return returnValue;
         }
         public double S()
-        {
-            double returnValue = -1;
-            switch (_token.Tag)
-            {
-                case TokenType.LParen:
-                    Match(TokenType.LParen);
-                    returnValue = Sp();
-                    break;
-                case TokenType.Number:
-                    returnValue = double.Parse(_token.Value);
-                    Match(TokenType.Number);
-                    break;
-                default:
-                    throw new Exception("Syntax Error");
-            }
-            return returnValue;
-        }
-        public double Sp()
-        {
-            double returnValue = -1;
-            double Fvalue;
-            switch (_token.Tag)
-            {
-                case TokenType.Minus:
-                    Match(TokenType.Minus);
-                    Fvalue = F();
-                    Match(TokenType.RParen);
-                    returnValue = Fvalue * -1;
-                    break;
-                case TokenType.LParen:
-                case TokenType.Number:
-                    returnValue = E();
-                    Match(TokenType.RParen);
-                    break;
-                default:
-                    throw new Exception("Syntax Error");
-            }
-            return returnValue;
-
-        }
-        public double F()
         {
             double returnValue = -1;
             switch (_token.Tag)

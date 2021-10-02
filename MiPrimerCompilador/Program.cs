@@ -26,7 +26,7 @@ namespace MiPrimerCompilador
                     {
                         Console.WriteLine(ex.Message);
                     }
-                Console.WriteLine("---------------------------------------------------------------------");
+                    Console.WriteLine("---------------------------------------------------------------------");
                     Console.WriteLine("Ingrese otra expresión (si desea terminar, presione E en su teclado): ");
                 }
                 else
